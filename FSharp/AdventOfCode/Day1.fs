@@ -18,8 +18,6 @@ module Day1 =
         if newFuel <= 0 then acc else totalFuel (acc + newFuel) newFuel
 
     let part2 () =
-
-
         Utils.readResource "Day1Input.txt"
         |> List.map int
         |> List.map (totalFuel 0)

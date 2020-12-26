@@ -6,8 +6,56 @@
 
     <ItemGroup>
         <EmbeddedResource Include="../../Inputs/Day1Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day2Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day3Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day4Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day5Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day6Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day7Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day8Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day9Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day10Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day11Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day12Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day13Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day14Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day15Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day16Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day17Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day18Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day19Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day20Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day21Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day22Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day23Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day24Input.txt" />
+        <EmbeddedResource Include="../../Inputs/Day25Input.txt" />
         <Compile Include="Utils.fs" />
         <Compile Include="Day1.fs" />
+        <Compile Include="Day2.fs" />
+        <Compile Include="Day3.fs" />
+        <Compile Include="Day4.fs" />
+        <Compile Include="Day5.fs" />
+        <Compile Include="Day6.fs" />
+        <Compile Include="Day7.fs" />
+        <Compile Include="Day8.fs" />
+        <Compile Include="Day9.fs" />
+        <Compile Include="Day10.fs" />
+        <Compile Include="Day11.fs" />
+        <Compile Include="Day12.fs" />
+        <Compile Include="Day13.fs" />
+        <Compile Include="Day14.fs" />
+        <Compile Include="Day15.fs" />
+        <Compile Include="Day16.fs" />
+        <Compile Include="Day17.fs" />
+        <Compile Include="Day18.fs" />
+        <Compile Include="Day19.fs" />
+        <Compile Include="Day20.fs" />
+        <Compile Include="Day21.fs" />
+        <Compile Include="Day22.fs" />
+        <Compile Include="Day23.fs" />
+        <Compile Include="Day24.fs" />
+        <Compile Include="Day25.fs" />
     </ItemGroup>
 
 </Project>
