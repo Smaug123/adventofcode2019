@@ -13,6 +13,8 @@
 
     <ItemGroup>
         <Compile Include="TestDay1.fs" />
+        <Compile Include="TestDay2.fs" />
+        <Compile Include="TestIntCode.fs" />
     </ItemGroup>
 
     <ItemGroup>
