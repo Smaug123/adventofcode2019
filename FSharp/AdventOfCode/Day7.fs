@@ -48,15 +48,15 @@ module Day7 =
             |> fun i -> i.Split ","
             |> Array.map int
 
-        let scratches = [| for i in 1..5 do yield Array.zeroCreate program.Length |]
+        let scratches = [| for _ in 1..5 do yield Array.zeroCreate program.Length |]
         let resetScratches () =
             for i in 0..4 do
                 System.Array.Copy (program, scratches.[i], program.Length)
 
-        resetScratches ()
-
-        permutations [5 ; 6 ; 7 ; 8 ; 9]
+        permutations [5..9]
         |> List.map (fun l ->
+            resetScratches ()
+
             let r, s, t, u, v =
                 match l with
                 | [r ; s ; t ; u ; v] -> r, s, t, u, v
