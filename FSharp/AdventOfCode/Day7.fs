@@ -85,18 +85,3 @@ module Day7 =
             e |> Seq.last
         )
         |> List.max
-
-        (*
-        permutations [5..9]
-        |> List.map (fun perm ->
-            resetScratches ()
-            // Problem: we need to provide information to a running program.
-            let rec go (startVal : int) =
-                perm
-                |> List.fold (fun (i, inputSignal) phaseSetting ->
-                    i + 1, IntCode.run scratches.[i] [phaseSetting ; inputSignal] |> Seq.exactlyOne
-                ) (0, startVal)
-            go 0
-        )
-        |> List.max
-        *)
