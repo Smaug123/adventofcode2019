@@ -11,16 +11,15 @@ module Day5 =
             |> Array.exactlyOne
             |> fun i -> i.Split ","
             |> Array.map int
-        let _, output = IntCode.run program [1]
+        let output = IntCode.run program [1]
 
-        let rec verifyOutput (output : int list) =
-            match output with
-            | [] -> failwith "Empty output"
-            | [ x ] -> x
-            | x :: output ->
-                if x <> 0 then failwithf "Saw nonzero output %i" x
-                verifyOutput output
-        verifyOutput output
+        // Check that all entries up til the last are zero, then output the last.
+        use e = output.GetEnumerator ()
+        let mutable prev = 0
+        while e.MoveNext () do
+            if prev <> 0 then failwithf "Saw nonzero output %i" e.Current
+            prev <- e.Current
+        prev
 
     let part2 () =
         let program =
@@ -28,6 +27,6 @@ module Day5 =
             |> Array.exactlyOne
             |> fun i -> i.Split ","
             |> Array.map int
-        let _, output = IntCode.run program [5]
+        let output = IntCode.run program [5]
         output
-        |> List.exactlyOne
+        |> Seq.exactlyOne

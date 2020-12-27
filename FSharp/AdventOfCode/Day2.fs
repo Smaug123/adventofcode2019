@@ -14,8 +14,8 @@ module Day2 =
 
         program.[1] <- 12
         program.[2] <- 2
-        let output, _ = IntCode.run program []
-        output
+        IntCode.run program [] |> Seq.iter ignore
+        program.[0]
 
     let part2 () =
         let originalProgram =
@@ -37,8 +37,8 @@ module Day2 =
                 resetScratch ()
                 scratchSpace.[1] <- noun
                 scratchSpace.[2] <- verb
-                let output, _ = IntCode.run scratchSpace []
-                if output = 19690720 then
+                IntCode.run scratchSpace [] |> Seq.iter ignore
+                if scratchSpace.[0] = 19690720 then
                     Some (noun, verb)
                 else goVerb (verb + 1)
 

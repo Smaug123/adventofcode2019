@@ -8,12 +8,13 @@ module TestIntCode =
 
     let private test (program : int seq) (input : int list) (expectedMemory : #seq<int> option) (expectedOutput : int list) =
         let arr = program |> Seq.toArray
-        let _, output = IntCode.run arr input
+        let output = IntCode.run arr input
+        // Order is important here: `output` is lazy.
+        CollectionAssert.AreEqual (expectedOutput, output)
         match expectedMemory with
         | Some expectedMemory ->
             CollectionAssert.AreEqual (expectedMemory, arr)
         | None -> ()
-        CollectionAssert.AreEqual (expectedOutput, output)
 
     [<Test>]
     let ``Examples from day 2`` () =
