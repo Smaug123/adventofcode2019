@@ -24,20 +24,18 @@ module Day7 =
     let part1 () =
         let program =
             Utils.readResource' "Day7Input.txt"
-            |> Array.exactlyOne
-            |> fun i -> i.Split ","
-            |> Array.map int
+            |> IntCode.parse
 
         let scratch = Array.zeroCreate program.Length
         let resetScratch () = System.Array.Copy (program, scratch, program.Length)
 
-        permutations [0..4]
+        permutations [0L..4L]
         |> List.map (fun perm ->
             perm
             |> List.fold (fun inputSignal phaseSetting ->
                 resetScratch ()
-                IntCode.run scratch [phaseSetting ; inputSignal] |> Seq.exactlyOne
-            ) 0
+                IntCode.run [phaseSetting ; inputSignal] scratch |> Seq.exactlyOne
+            ) 0L
         )
         |> List.max
 
@@ -53,7 +51,7 @@ module Day7 =
             for i in 0..4 do
                 System.Array.Copy (program, scratches.[i], program.Length)
 
-        permutations [5..9]
+        permutations [5L..9L]
         |> List.map (fun l ->
             resetScratches ()
 
@@ -62,7 +60,7 @@ module Day7 =
                 | [r ; s ; t ; u ; v] -> r, s, t, u, v
                 | _ -> failwith "logic error"
 
-            let mutable value = 0
+            let mutable value = 0L
             let mutable go = true
             let loopy =
                 seq {
@@ -70,13 +68,13 @@ module Day7 =
                     while go do
                         yield value
                 }
-            let a = IntCode.run scratches.[0] loopy
-            let b = IntCode.run scratches.[0] (seq { yield s ; yield! a })
-            let c = IntCode.run scratches.[0] (seq { yield t ; yield! b })
-            let d = IntCode.run scratches.[0] (seq { yield u ; yield! c })
+            let a = IntCode.run loopy scratches.[0]
+            let b = IntCode.run (seq { yield s ; yield! a }) scratches.[0]
+            let c = IntCode.run (seq { yield t ; yield! b }) scratches.[0]
+            let d = IntCode.run (seq { yield u ; yield! c }) scratches.[0]
             let e =
                 seq {
-                    for i in IntCode.run scratches.[0] (seq { yield v ; yield! d }) do
+                    for i in IntCode.run (seq { yield v ; yield! d }) scratches.[0] do
                         value <- i
                         yield i
                     go <- false

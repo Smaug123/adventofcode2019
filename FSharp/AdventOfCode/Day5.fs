@@ -6,27 +6,21 @@ open AdventOfCode.Internals
 module Day5 =
 
     let part1 () =
-        let program =
+        let output =
             Utils.readResource' "Day5Input.txt"
-            |> Array.exactlyOne
-            |> fun i -> i.Split ","
-            |> Array.map int
-        let output = IntCode.run program [1]
+            |> IntCode.parse
+            |> IntCode.run [1L]
 
         // Check that all entries up til the last are zero, then output the last.
         use e = output.GetEnumerator ()
-        let mutable prev = 0
+        let mutable prev = 0L
         while e.MoveNext () do
-            if prev <> 0 then failwithf "Saw nonzero output %i" e.Current
+            if prev <> 0L then failwithf "Saw nonzero output %i" e.Current
             prev <- e.Current
         prev
 
     let part2 () =
-        let program =
-            Utils.readResource' "Day5Input.txt"
-            |> Array.exactlyOne
-            |> fun i -> i.Split ","
-            |> Array.map int
-        let output = IntCode.run program [5]
-        output
+        Utils.readResource' "Day5Input.txt"
+        |> IntCode.parse
+        |> IntCode.run [5L]
         |> Seq.exactlyOne

@@ -10,9 +10,9 @@ module TestDay2 =
     [<Test>]
     let ``Test part 1`` () =
         Day2.part1 ()
-        |> shouldEqual 3765464
+        |> shouldEqual 3765464L
 
     [<Test>]
     let ``Test part 2`` () =
         Day2.part2 ()
-        |> shouldEqual 7610
+        |> shouldEqual 7610L
